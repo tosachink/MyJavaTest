@@ -60,7 +60,7 @@ jobs:
       with:
         languages: java
         dependency-caching: true
-        config-file: .github\codeql-config.yml
+        config-file: .github/codeql-config.yml
 
     - name: Run Build
       run: |
