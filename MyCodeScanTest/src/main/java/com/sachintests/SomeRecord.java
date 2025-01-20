@@ -4,7 +4,7 @@ import java.io.*;
 
 // Default Constructor with no arguments ot available
 public class SomeRecord {
- /*   public SomeRecord(String title){
+    public SomeRecord(String title){
         set_title(title);
     }
     public String get_title() {
@@ -23,5 +23,5 @@ public class SomeRecord {
         byte[] buffer = new byte[1024];
         in.readFully(buffer);
         set_title(new String(buffer));
-    }*/
+    }
 }
