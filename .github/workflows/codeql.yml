@@ -15,11 +15,11 @@ on:
   push:
     branches: 
       - 'main'
-      - '!mycodescantest'
+      - 'mycodescantest'
   pull_request:
     branches:
        - 'main'
-       - '!mycodescantest'
+       - 'mycodescantest'
   schedule:
     - cron: '34 13 * * 3'
 
@@ -31,7 +31,7 @@ jobs:
     #   - https://gh.io/supported-runners-and-hardware-resources
     #   - https://gh.io/using-larger-runners (GitHub.com only)
     # Consider using larger runners or machines with greater resources for possible analysis time improvements.
-    runs-on: [ubuntu]
+    runs-on: [ubuntu-latest]
     permissions:
       # required for all workflows
       security-events: write
@@ -48,7 +48,6 @@ jobs:
       matrix:
         include:
         - language: java
-          build-mode: autobuild
       
     steps:
     - name: Checkout repository
@@ -59,13 +58,10 @@ jobs:
       uses: github/codeql-action/init@v3
       with:
         languages: java
-        dependency-caching: true
-        config-file: .github\codeql-config.yml
-
+        config-file: .github/codeql-config.yml        
+        
     - name: Run Build
-      run: |
-        make bootstrap
-        make release
+      run: mvn -f ../MyCodeScanTest/pom.xml clean compile --debug
       
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v3
