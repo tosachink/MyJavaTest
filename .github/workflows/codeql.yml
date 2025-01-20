@@ -64,7 +64,7 @@ jobs:
 
     - name: Run Build
       run: |
-        mvn clean compile --debug
+        mvn -f MyCodeScanTest clean compile --debug
       
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v3
