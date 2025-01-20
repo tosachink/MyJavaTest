@@ -58,8 +58,8 @@ jobs:
       uses: github/codeql-action/init@v3
       with:
         languages: java
-        config-file: .github/codeql-config.yml
-        source-root: /home/runner/work/MyJavaTest
+        --source-root: /home/runner/work/MyJavaTest
+        config-file: .github/codeql-config.yml        
         
     - name: Run Build
       run: mvn -f MyCodeScanTest clean compile --debug
