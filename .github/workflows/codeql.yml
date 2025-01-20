@@ -64,8 +64,7 @@ jobs:
 
     - name: Run Build
       run: |
-        make bootstrap
-        make release
+        mvn clean compile --debug
       
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v3
