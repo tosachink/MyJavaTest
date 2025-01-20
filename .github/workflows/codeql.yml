@@ -48,7 +48,6 @@ jobs:
       matrix:
         include:
         - language: java
-          build-mode: autobuild
       
     steps:
     - name: Checkout repository
@@ -59,7 +58,6 @@ jobs:
       uses: github/codeql-action/init@v3
       with:
         languages: java
-        dependency-caching: true
         config-file: .github/codeql-config.yml
 
     - name: Run Build
