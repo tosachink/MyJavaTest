@@ -59,7 +59,8 @@ jobs:
       with:
         languages: java
         config-file: .github/codeql-config.yml
-
+        source-root: /home/runner/work/MyJavaTest
+        
     - name: Run Build
       run: mvn -f MyCodeScanTest clean compile --debug
       
