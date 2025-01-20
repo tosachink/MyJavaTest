@@ -61,7 +61,7 @@ jobs:
         config-file: .github/codeql-config.yml        
         
     - name: Run Build
-      run: mvn -f ../MyCodeScanTest/pom.xml clean compile --debug
+      run: mvn -f MyCodeScanTest/pom.xml clean compile --debug
       
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v3
