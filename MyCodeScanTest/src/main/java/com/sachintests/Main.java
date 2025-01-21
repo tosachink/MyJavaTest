@@ -25,9 +25,10 @@ public class Main {
         ObjectOutputStream os = new ObjectOutputStream(fileOutputStream);
         SomeRecord rec = new SomeRecord("Test");
         rec.WriteSomeRecord(os);
+        fileOutputStream.close();
 
         // Calling run instead of start
         ThreadTest tt = new ThreadTest();
-        tt.run();
+        tt.start();
     }
 }
